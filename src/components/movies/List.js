@@ -47,7 +47,7 @@ export default function MovieList() {
             <React.Fragment className="columns">  
                 {{search}.search.map(movie => 
                 <div  key= {movie.id} onClick={() => {movieChoice(movie)}}>
-                    <img className="column" src={IMAGE_URL + movie.poster_path} style={{width:50}}  onClick={() => {movieChoice(movie)}}/>
+                    <img className="column" src={IMAGE_URL + movie.poster_path} style={{width:50}}  onClick={() => {movieChoice(movie)}} alt={`poster_${movie.id}`}/>
                     <p className="column">{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
                 </div>
                 )}
@@ -55,7 +55,7 @@ export default function MovieList() {
                 
                 {{search}.search.length === 0 ? initMovie.map(movie => 
                     <div key= {movie.id} onClick={() => {movieChoice(movie)}}>
-                        <img  src={IMAGE_URL + movie.poster_path} style={{width:50}} />
+                        <img  src={IMAGE_URL + movie.poster_path} style={{width:50}}  alt={`poster_${movie.id}`}/>
                         <p >{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
                     </div>
                 ) : ""}
