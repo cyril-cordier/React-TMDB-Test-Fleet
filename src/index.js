@@ -3,12 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createStore} from 'redux';
-import reducer from './store/reducer'
+import {createStore, combineReducers } from 'redux';
+import movieSelectedReducer from './store/movieSelectedReducer'
+import searchReducer from './store/searchReducer'
 import {Provider} from 'react-redux'
 
 
-const store = createStore(reducer);
+const rootReducer = combineReducers({
+  movieSelectedReducer,
+  searchReducer
+})
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
   <React.StrictMode>
