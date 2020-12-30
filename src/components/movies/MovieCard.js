@@ -16,7 +16,8 @@ function MovieCard () {
     return (
         <div>
             
-            <h4>{{selected}.selected.title}</h4>
+            <h1>{{selected}.selected.title}</h1>
+            <p>Année de sortie : {{selected}.selected.title? {selected}.selected.release_date.substr(0,4) : ""}</p>
             <p>{{selected}.selected.overview}</p>
             <p>{{selected}.selected.vote_average / 2} / 5</p>
             <img src={IMAGE_URL + {selected}.selected.poster_path} style={{width:180}} alt=""/>
