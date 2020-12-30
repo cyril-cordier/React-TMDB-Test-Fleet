@@ -6,15 +6,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios'
 import MovieCard from './MovieCard'
 import Search from '../tools/search'
-
-
-
-const api_key = "612b8c457fd937136c063352f41e09ca"
+import {API_KEY, BASE_URL} from '../../constant'
 
 export default function MovieList() {
     
-    const [initMovie, setInitMovie] = useState([]);
-    const [mydata, setData] = useState([]);
+    const [initMovie, setInitMovie] = useState([]);;
     const [selectedMovie, setSelectedMovie] = useState([]);
     
     const {movieSelected, search} = useSelector(state => ({
@@ -22,33 +18,14 @@ export default function MovieList() {
         ...state.searchReducer
     }))
     const dispatch = useDispatch();
-    const showList = () => {
-            
-        }
-    
-    useEffect(() => {
-        /* const search = async () => {
-            await axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=612b8c457fd937136c063352f41e09ca&query=${search}`)
-            .then(response => {
-                setData(response.data.results)
-                console.log(response.data.results)
-            })
-            .catch(e => {
-                console.log(e)
-            })
-        }
-        search()*/
-
-        
-
-        showList()
-        //console.log(mydata.map(movie => movie.title)) 
-    }, [mydata])
 
     
     useEffect(() => {
-        console.log("selected", selectedMovie);
-        
+        console.log("useEffect selected", selectedMovie);
+        dispatch({
+            type: 'SELECT',
+            payload: selectedMovie
+        })
 
     }, [selectedMovie])
      
@@ -63,7 +40,7 @@ export default function MovieList() {
     } */
     useEffect(() => {
         const initialList = async () => {
-            await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=612b8c457fd937136c063352f41e09ca`)
+            await axios.get(`${BASE_URL}/movie/upcoming${API_KEY}`)
             .then(response => {
                 setInitMovie(response.data.results)
                 console.log(response.data.results)
@@ -75,10 +52,6 @@ export default function MovieList() {
         initialList();
     }, []) 
     
-    
-    
-    
-
         return ( 
             <div>
                 <Search />
