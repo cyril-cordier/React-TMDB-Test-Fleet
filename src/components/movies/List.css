@@ -1,0 +1,24 @@
+.listcontainer {
+    box-sizing: border-box;
+    height: 800px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.showlist {
+    margin: 10px;
+
+
+}
+
+
+p {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+
+}
+
+img {
+    margin: 3px;
+}
