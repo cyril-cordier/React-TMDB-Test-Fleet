@@ -1,6 +1,7 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
 import axios from 'axios';
+import {API_KEY, BASE_URL} from '../../constant'
 
 export default function Search() {
 
@@ -8,7 +9,7 @@ export default function Search() {
 
     const handleUpdate = (event) => {
         const search = async () => {
-            await axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=612b8c457fd937136c063352f41e09ca&query=${event.target.value}`)
+            await axios.get(`${BASE_URL}/search/movie/${API_KEY}&query=${event.target.value}`)
             .then(response => {
                 dispatch({
                     type: 'SEARCH',

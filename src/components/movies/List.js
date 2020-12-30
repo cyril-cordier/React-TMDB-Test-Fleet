@@ -6,15 +6,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios'
 import MovieCard from './MovieCard'
 import Search from '../tools/search'
-
-
-
-const api_key = "612b8c457fd937136c063352f41e09ca"
+import {API_KEY, BASE_URL} from '../../constant'
 
 export default function MovieList() {
     
-    const [term, setTerm] = useState("");
-    const [mydata, setData] = useState([]);
+    const [initMovie, setInitMovie] = useState([]);;
     const [selectedMovie, setSelectedMovie] = useState([]);
     
     const {movieSelected, search} = useSelector(state => ({
@@ -22,33 +18,14 @@ export default function MovieList() {
         ...state.searchReducer
     }))
     const dispatch = useDispatch();
-    const showList = () => {
-            
-        }
-    
-    useEffect(() => {
-        /* const search = async () => {
-            await axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=612b8c457fd937136c063352f41e09ca&query=${search}`)
-            .then(response => {
-                setData(response.data.results)
-                console.log(response.data.results)
-            })
-            .catch(e => {
-                console.log(e)
-            })
-        }
-        search()*/
-
-        
-
-        showList()
-        //console.log(mydata.map(movie => movie.title)) 
-    }, [mydata])
 
     
     useEffect(() => {
-        console.log("selected", selectedMovie);
-        
+        console.log("useEffect selected", selectedMovie);
+        dispatch({
+            type: 'SELECT',
+            payload: selectedMovie
+        })
 
     }, [selectedMovie])
      
@@ -61,36 +38,27 @@ export default function MovieList() {
             this.movies.setState()
         )
     } */
+    useEffect(() => {
+        const initialList = async () => {
+            await axios.get(`${BASE_URL}/movie/upcoming${API_KEY}`)
+            .then(response => {
+                setInitMovie(response.data.results)
+                console.log(response.data.results)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        };
+        initialList();
+    }, []) 
     
-    
-    
-
         return ( 
             <div>
                 <Search />
                 
-                {/* <form>
-                    <label htmlFor="search">Recherche</label>
-                    <input 
-                    type="text"
-                    name="search"
-                    placeholder="Chercher un film"
-                    value={term}
-                    onChange={e => setTerm(e.target.value)}
-                    />
-                </form> */}
-                {/* {Movies.results.map(movie => (<h4 key= {movie.id} onClick={() => {this.movieChoice(movie)}}>{movie.title}</h4>))} */}
-                {/* {Movies.results.map(movie => (<h4 key= {movie.id} onClick={() => {this.movieChoice(movie)}}>{movie.title}</h4>))} */}
-                {/* {this.state.movies.map(movie => (<p key= {movie.id}>{movie.title}</p>))} */}
-                {/* <p>{this.props.mySearch}</p> */}
-                {/* <p>{this.state.movies.poster_path}</p> */}
                 {{search}.search.map(movie => <p key= {movie.id} onClick={() => {movieChoice(movie)}}>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>)}
-                {/* {selectedMovie !== [] ? <MovieCard 
-        title={selectedMovie.title}
-        overview={selectedMovie.overview}
-        vote_average={selectedMovie.vote_average}
-        poster_path={selectedMovie.poster_path}
-        /> : ""} */}
+                {{search}.search.length === 0 ? initMovie.map(movie => <p key= {movie.id} onClick={() => {movieChoice(movie)}}>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>) : ""}
+
             </div>
         )
 }
