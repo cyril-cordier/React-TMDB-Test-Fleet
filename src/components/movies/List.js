@@ -4,46 +4,37 @@ import React, {
 import {useSelector, useDispatch} from 'react-redux';
 //import Movies from '../../source/movies.json'
 import axios from 'axios'
-import MovieCard from './MovieCard'
-import Search from '../tools/search'
-import {API_KEY, BASE_URL} from '../../constant'
+import {API_KEY, BASE_URL, IMAGE_URL} from '../../constant'
 
 export default function MovieList() {
     
     const [initMovie, setInitMovie] = useState([]);;
-    const [selectedMovie, setSelectedMovie] = useState([]);
     
-    const {movieSelected, search} = useSelector(state => ({
-        ...state.movieSelectedReducer,
+    const {search} = useSelector(state => ({
         ...state.searchReducer
-    }))
+    }));
+
     const dispatch = useDispatch();
 
-    
-    useEffect(() => {
-        console.log("useEffect selected", selectedMovie);
-        dispatch({
-            type: 'SELECT',
-            payload: selectedMovie
-        })
 
-    }, [selectedMovie])
-     
+    
     const movieChoice = (movie) => {
         
-        setSelectedMovie(movie);
+        
+        dispatch({
+            type: 'SELECT',
+            payload: movie
+        })
+
+        console.log("redux selected", movie.poster_path)
     }
-    /*searchMyMovie = () => {
-        return (
-            this.movies.setState()
-        )
-    } */
+
     useEffect(() => {
         const initialList = async () => {
             await axios.get(`${BASE_URL}/movie/upcoming${API_KEY}`)
             .then(response => {
                 setInitMovie(response.data.results)
-                console.log(response.data.results)
+                //console.log(response.data.results)
             })
             .catch(e => {
                 console.log(e)
@@ -53,12 +44,22 @@ export default function MovieList() {
     }, []) 
     
         return ( 
-            <div>
-                <Search />
+            <React.Fragment className="columns">  
+                {{search}.search.map(movie => 
+                <div  key= {movie.id} onClick={() => {movieChoice(movie)}}>
+                    <img className="column" src={IMAGE_URL + movie.poster_path} style={{width:50}}  onClick={() => {movieChoice(movie)}}/>
+                    <p className="column">{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
+                </div>
+                )}
                 
-                {{search}.search.map(movie => <p key= {movie.id} onClick={() => {movieChoice(movie)}}>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>)}
-                {{search}.search.length === 0 ? initMovie.map(movie => <p key= {movie.id} onClick={() => {movieChoice(movie)}}>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>) : ""}
-
-            </div>
+                
+                {{search}.search.length === 0 ? initMovie.map(movie => 
+                    <div key= {movie.id} onClick={() => {movieChoice(movie)}}>
+                        <img  src={IMAGE_URL + movie.poster_path} style={{width:50}} />
+                        <p >{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
+                    </div>
+                ) : ""}
+                
+            </React.Fragment>
         )
 }

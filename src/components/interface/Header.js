@@ -12,10 +12,7 @@ export default function Header() {
                         <Link to="/Movies" className="nav-link">Films</Link>
                         </li>
                         <li className="nav-item d-inline-block mr-2">
-                        <Link to="/List" className="nav-link">Chercher</Link>
-                        </li>
-                        <li className="nav-item d-inline-block mr-2">
-                        <Link to="/Details" className="nav-link">Detail Movie</Link>
+                        <Link to="/Details" className="nav-link">Detail Film</Link>
                         </li>
                         <li className="nav-item d-inline-block mr-2">
                         <Link to="/about" className="nav-link">A propos</Link>

@@ -1,7 +1,7 @@
 
 import './App.css';
 import React from 'react'
-import MovieCard from './components/movies/MovieCard';
+import CompleteMovieCard from './components/movies/CompleteMovieCard';
 import Movies from './components/pages/Movies';
 import Header from './components/interface/Header'
 import {HashRouter as Router, Route, Switch} from 'react-router-dom'
@@ -24,7 +24,7 @@ function App() {
           <Route exact path='/' component={Home}/>
           <Route exact path='/List' component={List}/>
           <Route exact path='/Movies' component={Movies}/>
-          <Route exact path='/Details' component={MovieCard}/>
+          <Route exact path='/Details' component={CompleteMovieCard}/>
           <Route exact path='/about' component={About}/>
           <Route component={Erreur}/>
         </Switch>

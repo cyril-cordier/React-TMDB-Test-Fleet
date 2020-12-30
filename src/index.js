@@ -4,13 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createStore, combineReducers } from 'redux';
-import movieSelectedReducer from './store/movieSelectedReducer'
+import movieReducer from './store/movieReducer'
 import searchReducer from './store/searchReducer'
 import {Provider} from 'react-redux'
 
 
 const rootReducer = combineReducers({
-  movieSelectedReducer,
+  movieReducer,
   searchReducer
 })
 
