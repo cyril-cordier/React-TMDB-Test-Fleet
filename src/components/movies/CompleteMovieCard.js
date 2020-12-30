@@ -30,7 +30,7 @@ function MovieCard () {
           .catch(error => console.log('error', error))
 
         //console.log(youtubeKey)
-    }, [youtubeKey])
+    })
 
 
     return (
@@ -40,9 +40,7 @@ function MovieCard () {
             <p>{{selected}.selected.overview}</p>
             <p>{{selected}.selected.vote_average / 2} / 5</p>
             <img src={IMAGE_URL + {selected}.selected.poster_path} style={{width:180}} alt=""/>
-            <iframe class="mt-4 mx-auto shadow rounded-md w-full" height="200" src={`https://www.youtube.com/embed/${youtubeKey}`} frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+            <iframe title="trailer" height="315" width="560"  src={`https://www.youtube.com/embed/${youtubeKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
         </div>
