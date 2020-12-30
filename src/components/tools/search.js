@@ -2,6 +2,7 @@ import React from 'react'
 import {useDispatch} from 'react-redux'
 import axios from 'axios';
 import {API_KEY, BASE_URL} from '../../constant'
+import {Form} from 'react-bootstrap'
 
 export default function Search() {
 
@@ -29,12 +30,9 @@ export default function Search() {
 
     return (
         <div>
-             <input 
-                type="text"
-                name="search"
-                placeholder="Chercher un film"
-                onChange={handleUpdate}
-                />            
+             <Form.Control size="lg" type="text" placeholder="Search your movie"
+                onChange={handleUpdate}/>
+                           
         </div>
     )
 }
