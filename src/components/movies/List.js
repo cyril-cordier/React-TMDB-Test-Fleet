@@ -13,7 +13,7 @@ const api_key = "612b8c457fd937136c063352f41e09ca"
 
 export default function MovieList() {
     
-    const [term, setTerm] = useState("");
+    const [initMovie, setInitMovie] = useState([]);
     const [mydata, setData] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState([]);
     
@@ -61,6 +61,20 @@ export default function MovieList() {
             this.movies.setState()
         )
     } */
+    useEffect(() => {
+        const initialList = async () => {
+            await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=612b8c457fd937136c063352f41e09ca`)
+            .then(response => {
+                setInitMovie(response.data.results)
+                console.log(response.data.results)
+            })
+            .catch(e => {
+                console.log(e)
+            })
+        };
+        initialList();
+    }, []) 
+    
     
     
     
@@ -69,28 +83,9 @@ export default function MovieList() {
             <div>
                 <Search />
                 
-                {/* <form>
-                    <label htmlFor="search">Recherche</label>
-                    <input 
-                    type="text"
-                    name="search"
-                    placeholder="Chercher un film"
-                    value={term}
-                    onChange={e => setTerm(e.target.value)}
-                    />
-                </form> */}
-                {/* {Movies.results.map(movie => (<h4 key= {movie.id} onClick={() => {this.movieChoice(movie)}}>{movie.title}</h4>))} */}
-                {/* {Movies.results.map(movie => (<h4 key= {movie.id} onClick={() => {this.movieChoice(movie)}}>{movie.title}</h4>))} */}
-                {/* {this.state.movies.map(movie => (<p key= {movie.id}>{movie.title}</p>))} */}
-                {/* <p>{this.props.mySearch}</p> */}
-                {/* <p>{this.state.movies.poster_path}</p> */}
                 {{search}.search.map(movie => <p key= {movie.id} onClick={() => {movieChoice(movie)}}>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>)}
-                {/* {selectedMovie !== [] ? <MovieCard 
-        title={selectedMovie.title}
-        overview={selectedMovie.overview}
-        vote_average={selectedMovie.vote_average}
-        poster_path={selectedMovie.poster_path}
-        /> : ""} */}
+                {{search}.search.length === 0 ? initMovie.map(movie => <p key= {movie.id} onClick={() => {movieChoice(movie)}}>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>) : ""}
+
             </div>
         )
 }
