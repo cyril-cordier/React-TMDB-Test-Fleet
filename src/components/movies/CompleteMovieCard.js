@@ -24,7 +24,7 @@ function MovieCard () {
           redirect: 'follow'
         };
         fetch(
-            `${BASE_URL}/movie/${{selected}.selected.id}/videos${API_KEY}&language=en-US`,
+            `https://${BASE_URL}/movie/${{selected}.selected.id}/videos${API_KEY}&language=en-US`,
             requestOptions)
           .then(response => response.json())
           

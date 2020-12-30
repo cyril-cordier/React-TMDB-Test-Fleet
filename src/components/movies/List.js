@@ -33,7 +33,7 @@ export default function MovieList() {
 
     useEffect(() => {
         const initialList = async () => {
-            await axios.get(`${BASE_URL}/movie/upcoming${API_KEY}`)
+            await axios.get(`https://${BASE_URL}/movie/upcoming${API_KEY}`)
             .then(response => {
                 setInitMovie(response.data.results)
                 //console.log(response.data.results)
