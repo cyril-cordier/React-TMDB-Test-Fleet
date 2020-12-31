@@ -9,11 +9,17 @@
     margin: 10px;
 
 
+
 }
 
+.listtitle:hover {
+    background-color: rgba(178, 248, 225, 0.6);
+    border-radius: 10px;
+}
 
-p {
-    display: flex;
+.listtitle {
+
+    display: inline-block;
     font-size: 15px;
     align-items: center;
 
@@ -21,4 +27,17 @@ p {
 
 img {
     margin: 3px;
+}
+
+p {
+    display: flex;
+    font-size: 15px;
+    align-items: center;
+}
+
+@media (max-width:992px) {
+    .listcontainer {
+        height: 300px;
+        width: 100%;
+    }
 }

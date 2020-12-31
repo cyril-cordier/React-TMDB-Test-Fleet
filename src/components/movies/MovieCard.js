@@ -19,7 +19,7 @@ function MovieCard () {
 
         return (
             <Container>
-                <React.Fragment>
+                <div className="moviecard">
                     <Row>
                         <Col>
                             <img src={IMAGE_URL + {selected}.selected.poster_path} style={{width:180}} alt=""/>
@@ -27,13 +27,13 @@ function MovieCard () {
                         <Col className='title'>
                             <h1>{{selected}.selected.title}</h1>
                             <p>Vote average : {{selected}.selected.vote_average / 2} / 5</p>
-                            <p>Release date : {{selected}.selected.title? {selected}.selected.release_date.substr(0,4) : ""}</p>
+                            <p>Release year : {{selected}.selected.title? {selected}.selected.release_date.substr(0,4) : ""}</p>
                         </Col>
                     </Row>
                     <p className='description'>{{selected}.selected.title? {selected}.selected.overview.substr(0, 100) : ""}[...]</p>
                     <Link to="/Details" className="btn btn-primary mb-5">More informations</Link>
 
-                </React.Fragment>
+                </div>
             
             </Container>
         )
