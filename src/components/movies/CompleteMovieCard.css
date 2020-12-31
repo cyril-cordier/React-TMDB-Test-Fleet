@@ -23,12 +23,13 @@
 .trailer {
     height: 315px;
     width: 560px;
+    margin-bottom: 50px;
 }
 
 .back {
     position: absolute;
     left: 20px;
-    top: 30px;
+    top: 65px;
 }
 
 @media (max-width:600px) {
