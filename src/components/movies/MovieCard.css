@@ -8,3 +8,9 @@
 .description {
     font-size: 20px;
 }
+
+@media (max-width:992px) {
+    .moviecard {
+        margin-top: 20px;
+    }
+}

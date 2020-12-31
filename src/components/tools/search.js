@@ -10,7 +10,7 @@ export default function Search() {
 
     const handleUpdate = (event) => {
         const search = async () => {
-            await axios.get(`https://${BASE_URL}/search/movie/${API_KEY}&query=${event.target.value}`)
+            await axios.get(`${BASE_URL}/search/movie/${API_KEY}&query=${event.target.value}`)
             .then(response => {
                 dispatch({
                     type: 'SEARCH',

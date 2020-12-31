@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux';
 import {API_KEY, BASE_URL, IMAGE_URL} from '../../constant'
 import InitScreen from '../interface/InitScreen'
 import {Link} from 'react-router-dom'
+import './CompleteMovieCard.css'
 
 
 function MovieCard () {
@@ -24,7 +25,7 @@ function MovieCard () {
           redirect: 'follow'
         };
         fetch(
-            `https://${BASE_URL}/movie/${{selected}.selected.id}/videos${API_KEY}&language=en-US`,
+            `${BASE_URL}/movie/${{selected}.selected.id}/videos${API_KEY}&language=en-US`,
             requestOptions)
           .then(response => response.json())
           
@@ -38,16 +39,19 @@ function MovieCard () {
 
         return (
     
-            <React.Fragment>
-                
-                <h4>{{selected}.selected.title}</h4>
-                <p>{{selected}.selected.overview}</p>
-                <p>{{selected}.selected.vote_average / 2} / 5</p>
+            <div className="body">
+                <Link to="/Movies" className="btn btn-primary mt-20 back"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                </svg> Back</Link>
+                <h4 className="title">{{selected}.selected.title}</h4>
                 <img src={IMAGE_URL + {selected}.selected.poster_path} style={{width:180}} alt=""/>
-                <iframe title="trailer" height="315" width="560"  src={`https://www.youtube.com/embed/${youtubeKey}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>Release date : {{selected}.selected.release_date}</p>
+                <p>Vote average : {{selected}.selected.vote_average / 2} / 5</p>
+                <p className="description">{{selected}.selected.overview}</p>
+                <iframe title="trailer" className="trailer"  src={`https://www.youtube.com/embed/${youtubeKey}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 
-            </React.Fragment>
+            </div>
             
         )
         }else {

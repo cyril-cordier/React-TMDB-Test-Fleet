@@ -33,7 +33,7 @@ export default function MovieList() {
 
     useEffect(() => {
         const initialList = async () => {
-            await axios.get(`https://${BASE_URL}/movie/upcoming${API_KEY}`)
+            await axios.get(`${BASE_URL}/movie/upcoming${API_KEY}`)
             .then(response => {
                 setInitMovie(response.data.results)
                 //console.log(response.data.results)
@@ -46,14 +46,14 @@ export default function MovieList() {
     }, []) 
     
         return ( 
-            <React.Fragment className="showlist">  
+            <div className="showlist">  
                 <Container className="listcontainer">
                     
                     {{search}.search.map(movie => 
-                    <Row key= {movie.id} onClick={() => {movieChoice(movie)}}>
+                    <Row className="listtitle" key= {movie.id} onClick={() => {movieChoice(movie)}}>
                         
                             <img src={movie.poster_path !== null ? IMAGE_URL + movie.poster_path : DEFAULT_IMG} style={{width:50}}  onClick={() => {movieChoice(movie)}} alt={`poster_${movie.id}`}/>
-                            <p>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
+                            <p >{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
                         
                     </Row>
                     )}
@@ -62,13 +62,13 @@ export default function MovieList() {
                 
                 
                     {{search}.search.length === 0 ? initMovie.map(movie => 
-                        <Row key= {movie.id} onClick={() => {movieChoice(movie)}}>
+                        <Row className="listtitle" key= {movie.id} onClick={() => {movieChoice(movie)}}>
                             <img  src={movie.poster_path !== null ? IMAGE_URL + movie.poster_path : DEFAULT_IMG} style={{width:50}}  alt={`poster_${movie.id}`}/>
-                            <p>{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
+                            <p >{movie.title} ({movie.title? movie.release_date.substr(0,4) : ""})</p>
                         </Row>
                     ) : ""}
                 
                 </Container>
-            </React.Fragment>
+            </div>
         )
 }
