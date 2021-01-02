@@ -1,3 +1,7 @@
+.moviecard {
+    margin-left: 20px;
+}
+
 .title {
     display: flex;
     flex-direction: column;
@@ -12,5 +16,6 @@
 @media (max-width:992px) {
     .moviecard {
         margin-top: 20px;
+        margin-left: 0;
     }
 }

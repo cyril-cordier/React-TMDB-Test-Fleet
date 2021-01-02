@@ -48,7 +48,7 @@ function MovieCard () {
                 <p>Release date : {{selected}.selected.release_date}</p>
                 <p>Vote average : {{selected}.selected.vote_average / 2} / 5</p>
                 <p className="description">{{selected}.selected.overview}</p>
-                <iframe title="trailer" className="trailer"  src={`https://www.youtube.com/embed/${youtubeKey}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                {{youtubeKey}!==null?<iframe title="trailer" className="trailer"  src={`https://www.youtube.com/embed/${youtubeKey}`} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe> :""}
 
 
             </div>
@@ -64,13 +64,5 @@ function MovieCard () {
         }
     
 }
-
-/* const mapStateToProps = state => {
-    console.log(state.movie)
-    return {
-        selectedMovie : state.movie
-    }
-}
- */
 
 export default MovieCard;

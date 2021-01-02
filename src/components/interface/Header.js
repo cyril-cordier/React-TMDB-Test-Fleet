@@ -17,7 +17,7 @@ export default function Header() {
                             <Link to="/Movies" className="nav-link">Movies</Link>
                         </Nav.Link>
                         <Nav.Link >
-                            <Link to="/Details" className="nav-link">Movie Detail</Link>
+                            <Link to="/Details" className="nav-link">Movie Details</Link>
                         </Nav.Link>
                         <Nav.Link >
                             <Link to="/about" className="nav-link">About</Link>

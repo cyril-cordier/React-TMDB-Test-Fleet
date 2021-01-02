@@ -1,0 +1,25 @@
+.bodymovie {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+
+}
+
+.searchlistcomponent {
+    width: 500px;
+}
+
+
+@media (max-width:1000px) {
+
+
+    .bodymovie {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .searchlistcomponent {
+        width: 100%;
+    }
+}
