@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/React-TMDB-Test-Fleet/static/css/main.31266270.chunk.css",
-    "main.js": "/React-TMDB-Test-Fleet/static/js/main.30c81c35.chunk.js",
-    "main.js.map": "/React-TMDB-Test-Fleet/static/js/main.30c81c35.chunk.js.map",
-    "runtime-main.js": "/React-TMDB-Test-Fleet/static/js/runtime-main.9e0270b0.js",
-    "runtime-main.js.map": "/React-TMDB-Test-Fleet/static/js/runtime-main.9e0270b0.js.map",
+    "main.css": "/React-TMDB-Test-Fleet/static/css/main.c76f3554.chunk.css",
+    "main.js": "/React-TMDB-Test-Fleet/static/js/main.7a512d1c.chunk.js",
+    "main.js.map": "/React-TMDB-Test-Fleet/static/js/main.7a512d1c.chunk.js.map",
+    "runtime-main.js": "/React-TMDB-Test-Fleet/static/js/runtime-main.233d2e1b.js",
+    "runtime-main.js.map": "/React-TMDB-Test-Fleet/static/js/runtime-main.233d2e1b.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/React-TMDB-Test-Fleet/static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.1eb8ead8.chunk.js": "/React-TMDB-Test-Fleet/static/js/2.1eb8ead8.chunk.js",
-    "static/js/2.1eb8ead8.chunk.js.map": "/React-TMDB-Test-Fleet/static/js/2.1eb8ead8.chunk.js.map",
-    "static/js/3.5d0c0a4a.chunk.js": "/React-TMDB-Test-Fleet/static/js/3.5d0c0a4a.chunk.js",
-    "static/js/3.5d0c0a4a.chunk.js.map": "/React-TMDB-Test-Fleet/static/js/3.5d0c0a4a.chunk.js.map",
+    "static/js/2.3594c95a.chunk.js": "/React-TMDB-Test-Fleet/static/js/2.3594c95a.chunk.js",
+    "static/js/2.3594c95a.chunk.js.map": "/React-TMDB-Test-Fleet/static/js/2.3594c95a.chunk.js.map",
+    "static/js/3.2c44ce94.chunk.js": "/React-TMDB-Test-Fleet/static/js/3.2c44ce94.chunk.js",
+    "static/js/3.2c44ce94.chunk.js.map": "/React-TMDB-Test-Fleet/static/js/3.2c44ce94.chunk.js.map",
     "index.html": "/React-TMDB-Test-Fleet/index.html",
     "static/css/2.20aa2d7b.chunk.css.map": "/React-TMDB-Test-Fleet/static/css/2.20aa2d7b.chunk.css.map",
-    "static/css/main.31266270.chunk.css.map": "/React-TMDB-Test-Fleet/static/css/main.31266270.chunk.css.map",
-    "static/js/2.1eb8ead8.chunk.js.LICENSE.txt": "/React-TMDB-Test-Fleet/static/js/2.1eb8ead8.chunk.js.LICENSE.txt"
+    "static/css/main.c76f3554.chunk.css.map": "/React-TMDB-Test-Fleet/static/css/main.c76f3554.chunk.css.map",
+    "static/js/2.3594c95a.chunk.js.LICENSE.txt": "/React-TMDB-Test-Fleet/static/js/2.3594c95a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.9e0270b0.js",
+    "static/js/runtime-main.233d2e1b.js",
     "static/css/2.20aa2d7b.chunk.css",
-    "static/js/2.1eb8ead8.chunk.js",
-    "static/css/main.31266270.chunk.css",
-    "static/js/main.30c81c35.chunk.js"
+    "static/js/2.3594c95a.chunk.js",
+    "static/css/main.c76f3554.chunk.css",
+    "static/js/main.7a512d1c.chunk.js"
   ]
 }
