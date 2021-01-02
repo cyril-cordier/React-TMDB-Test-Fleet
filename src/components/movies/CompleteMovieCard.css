@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: 20px;
 }
 
 .title {
@@ -14,10 +15,9 @@
 .description {
     font-size: 20px;
     border-radius: 10px;
-    width: 560px;
+    width: 90%;
     background-color: rgb(178, 248, 225, 0.6);
     padding: 15px;
-    margin: 20px
 }
 
 .trailer {
@@ -36,11 +36,16 @@
     .description {
         font-size: 15px;
         width: 90%;
+        margin: 10px;
     }
 
     .trailer {
         height: 250px;
         width: 95%;
+    }
+
+    .initpicture {
+        width: 90%;
     }
 
 }

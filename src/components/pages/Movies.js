@@ -2,20 +2,21 @@ import React from 'react'
 import Search from "../tools/search";
 import List from '../movies/List'
 import MovieCard from '../movies/MovieCard'
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container, Col} from 'react-bootstrap'
+import './Movies.css'
 
 
 
 export default function Movies() {
     return (
         <Container>
-            <Row>
-                <Col>
+            <div className="bodymovie">
+                <div className="searchlistcomponent">
                     <Search />
                     <List />
-                </Col>
-                <Col><MovieCard /></Col>
-            </Row>
+                </div>
+                <div><MovieCard /></div>
+            </div>
         </Container>
     )
 }

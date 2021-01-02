@@ -8,7 +8,7 @@ export default class About extends Component {
         vReact : "17.0.1",
         vBootstrap : "4.5.3", 
         by : "Cyril CORDIER", 
-        comments : "Merci à Benjamin Brizzi et à Fleet pour ce test, l'occasion de mieux prendre en main React, ses hooks, son state management... ", 
+        comments : "Merci à Benjamin Brizzi et à Fleet pour ce test, l'occasion de mieux prendre en main React, ses hooks, son state management... Et Bonne Année 2021 !", 
         github : "https://github.com/cyril-cordier/React-TMDB-Test-Fleet",
 
     }

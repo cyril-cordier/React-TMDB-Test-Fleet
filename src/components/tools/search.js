@@ -16,7 +16,7 @@ export default function Search() {
                     type: 'SEARCH',
                     payload: response.data.results
                 })
-                //console.log('reponse', response.data.results)
+                console.log('reponse', response.data.results)
             })
             .catch(e => {
                 console.log(e)

@@ -5,6 +5,12 @@ export default function searchReducer(state = {search: []}, action) {
             return { 
                 search: action.payload
             }
+        case 'RESET':
+        
+            return { 
+                search: []
+            }
+            
         default: 
             return state;
     }
