@@ -74,27 +74,27 @@ export default function MovieList() {
 
                     
                     {{search}.search.map(movie => 
-                    <Row className="listtitle" key= {movie.id} onClick={() => {movieChoice(movie)}}>
+                    <div className="listtitle" key= {movie.id} onClick={() => {movieChoice(movie)}}>
                             <img src={movie.poster_path !== null ? IMAGE_URL + movie.poster_path : DEFAULT_IMG} style={{width:50}}  onClick={() => {movieChoice(movie)}} alt={`poster_${movie.id}`}/>
-                        <Col>
-                            <p >{movie.title} </p>
-                            <p >({movie.title&&movie.release_date? movie.release_date.substr(0,4) : ""})</p>
-                        </Col>
+                        <div className="carddetails">
+                            <p className="cardtitle">{movie.title} </p>
+                            <p className="carddate">({movie.title&&movie.release_date? movie.release_date.substr(0,4) : ""})</p>
+                        </div>
                         
-                    </Row>
+                    </div>
                     )}
 
                     
                 
                 
                     {{search}.search.length === 0 ? initMovie.map(movie => 
-                        <Row className="listtitle" key= {movie.id} onClick={() => {movieChoice(movie)}}>
+                        <div className="listtitle" key= {movie.id} onClick={() => {movieChoice(movie)}}>
                             <img  src={movie.poster_path !== null ? IMAGE_URL + movie.poster_path : DEFAULT_IMG} style={{width:50}}  alt={`poster_${movie.id}`}/>
-                            <Col>
-                                <p >{movie.title} </p>
-                                <p>{mDBList==="top_rated"&&movie.title&&movie.vote_average!==null? movie.vote_average/2+"/5 - " : ""} {movie.title&&movie.release_date? "("+movie.release_date.substr(0,4)+")" : ""}</p>
-                            </Col>
-                        </Row>
+                            <div className="carddetails">
+                                <p className="cardtitle">{movie.title} </p>
+                                <p className="carddate">{mDBList==="top_rated"&&movie.title&&movie.vote_average!==null? movie.vote_average/2+"/5 - " : ""} {movie.title&&movie.release_date? "("+movie.release_date.substr(0,4)+")" : ""}</p>
+                            </div>
+                        </div>
                     ) : ""}
                 
                 </Container>

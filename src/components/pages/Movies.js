@@ -2,7 +2,7 @@ import React from 'react'
 import Search from "../tools/search";
 import List from '../movies/List'
 import MovieCard from '../movies/MovieCard'
-import {Container, Col} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import './Movies.css'
 
 

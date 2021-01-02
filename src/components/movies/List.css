@@ -19,7 +19,8 @@
 
 .listtitle {
 
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
     font-size: 15px;
     align-items: center;
     border-bottom: solid rgba(116, 115, 115, 0.486) 1px;
@@ -28,6 +29,20 @@
 
 .listtitle:hover {
     background-color: rgba(178, 248, 225, 0.6);
+}
+
+.cardtitle {
+    font-weight: bold;
+
+}
+
+.listtitle p {
+    margin: 0;
+    text-align: left;
+}
+
+.carddate {
+    font-size: 12px;
 }
 
 
